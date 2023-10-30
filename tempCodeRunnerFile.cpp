@@ -1,0 +1,11 @@
+e* tail=NULL;
+    // insert_at_last(tail,10);
+    // insert_at_last(tail,9);
+    // insert_at_last(tail,8);
+    // insert_at_last(tail,7);
+    // insert_at_last(tail,6);
+    // insert_at_last(tail,4);
+    // insert_at_last(tail,5);
+    // display(head);
+    // display(tail);
+    // merge_point(head,tail);

@@ -1,0 +1,17 @@
+hile(pq.size())
+        {
+            curr=pq.top().first;
+            in=pq.top().second;
+            pq.pop();
+            if(in)
+            {
+                curr*=prev[in-1];
+                prev[in]=prev[in-1];
+            }
+            if(in<n-1)
+            {
+                curr*=nxt[in+1];
+                nxt[curr]=nxt[in+1];
+            }
+            ans+=curr;
+        }
