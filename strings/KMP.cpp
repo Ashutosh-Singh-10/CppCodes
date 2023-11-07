@@ -1,29 +1,47 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-void buildLPS(string &str,vector<int> & vec)
+void buildLPS(string & s,vector<int> &vec)
 {
-    for(int i=1;i<vec.size();i++)
+    vec.push_back(0);
+    for(int i=1;i<s.length();i++)
     {
-        if(str[vec[i-1]]==str[i])
+        if(s[i]==s[vec[i-1]])
         {
-            vec[i]=vec[i-1]+1;
+            vec.push_back(vec[i-1]+1);
+
         }
-        else 
+        else if(vec[i-1]==0)
         {
-            while(vec[i])
+            vec.push_back(0);
+
+        }
+        else
+        {
+            int temp=i-1;
+            while( s[temp]!=s[i])
             {
+                temp=vec[temp];
+                if(temp==0) break;
 
             }
+            if(s[vec[temp]]==s[i])
+            {
+                vec.push_back(temp+1);
+                
+            }
+            else vec.push_back(0);
+
+            
         }
 
     }
-
 }
-
 int main()
 {
-
-    string str="ab";
-    vector<int> vec(str.size(),0);
+    string s="cabdcancacacabcabdcab";
+    vector<int> vec;
+    buildLPS(s,vec);
+    cout<<endl;
+    for(auto &i:vec) cout<<i<<"  ";
     return 0;
 }

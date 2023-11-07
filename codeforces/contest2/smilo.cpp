@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+typedef long long ll;
 int main()
 {
     long long t,temp;
@@ -17,90 +18,66 @@ int main()
         vec.push_back(temp);
        }
        sort(vec.begin(),vec.end());
-       for(auto &i:vec)
-       {
-        cout<<i<<"  ";
-       }
-       cout<<endl;
+    //    for(auto &i:vec)
+    //    {
+    //     cout<<i<<"  ";
+    //    }
+    //    cout<<endl;
        int end=n-1;
        int start=0;
-       int x=0;
-       int ans=0;
-       int vac=0;
+       ll x=0;
+       ll ans=0;
+       ll vac=0;
+       ll left=0,right=0,cnt=0;
        while(start<end)
        {
-        if(vec[start]+x>vec[end])
+        if(left>=right+vec[end])
         {
-            if(end-start==1)
-            {
-                ans+=vec[end]-x+1;
-                vac=vec[start]+x-vec[end];
-                break;
-            }
-            else
-            {
-                ans+=vec[end]-x+1;
-                end--;
-                x=vec[start]+x-vec[end];
-                
-            }
-        }
-        else if(vec[start]+x<vec[end])
-        {
-
-            if(end-start==1)
-            {
-                ans+=vec[start]+x;
-                vac=vec[end]-vec[start]-x;
-                break;
-
-            }
-            else
-            {
-                x+=vec[start];
-                ans+=vec[start];
-                start++;
-
-            }
-
-        }
-        else 
-        {
-            ans+=vec[start]+1;
-
-            if(end-start==2)
-            {
-                vac=vec[start+1];
-                break;
-
-            }
-            else if(end-start==1) 
-            {
-            break;
-            }
-            start++;
+            right+=vec[end];
+            cnt++;
             end--;
-            x=0;
-
-        }
-        cout<<"#######"<<start<<"  "<<end<<"   "<<ans<<"  "<<endl;
-
-       }
-        cout<<endl;
-        cout<<ans<<endl;
-
-        if(vac<3)
-        {
-            ans+=vac;
         }
         else
         {
-            ans+=vac/2;
-            if(ans%2) ans++;
-            ans++;
+            left+=vec[start];
+            start++;
         }
-        cout<<ans<<endl;
-        // cout<<endl;
+
+       
+       }
+       ans+=right+cnt;
+    //    cout<<"#########"<<ans<<endl;
+       vac=vec[start];
+       x=left-right;
+       if(vac<=x)
+       {
+            ans+=vac+1;
+            x=x-vac;
+       }
+       else
+       {
+        x=vac+x;
+        
+
+
+       }
+            if(x<3)
+            {
+                ans+=x;
+            }
+            else
+            {
+                ans+=x/2;
+                ans++;
+                ans+=(x%2==1)?1:0;
+            }
+            // cout<<"#########";
+            cout<<ans<<endl;
+
+
+  
+
+        
 
       
     }
