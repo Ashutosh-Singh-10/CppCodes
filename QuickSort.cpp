@@ -1,48 +1,78 @@
 #include <iostream>
 using namespace std;
-int partition(int *arr,int start,int end)
-{
-    int temparr[end-start];
-    for(int i=0;i<end-start;i++)
-    {
-        temparr[i]=arr[start+i];
-    }
-    int i=0;
-    int temp=arr[end];
-    while(start!=end)
-    {
-        if (temp>temparr[i])
-        {
-            arr[start]=temparr[i];
-            start++;
-        }
-        else{
-            arr[end]=temparr[i];
-            end--;
-        }
-        i++;
-        arr[start]=temp;
-    }
-    return start;
 
+int partition(int* arr, int start, int end)
+{ 
+	
+	int index = 0, pivotElement = arr[end], pivotIndex;
+	int* temp = new int[end - start + 1]; 
+	for (int i = start; i <= end; i++) 
+	{
+		if(arr[i] < pivotElement)
+		{
+			temp[index] = arr[i];
+			index++;
+		}
+	}
+
+	temp[index] = pivotElement; 
+	index++;
+
+	for (int i = start; i < end; i++) 
+	{
+		if(arr[i] > pivotElement)
+		{
+			temp[index] = arr[i];
+			index++;
+		}
+	}
+			
+	
+	
+	index = 0;
+	for (int i = start; i <= end; i++) 
+	{ 
+		if(arr[i] == pivotElement)
+		{
+			
+			pivotIndex = i;
+		}
+		arr[i] = temp[index];
+		index++;
+	}
+	return pivotIndex;
 }
-void countSort(int *arr,int start,int end)
-{
-    if(start==end) return;
-    int pos=partition(arr,start,end-1);
-    countSort(arr,start,pos);
-    countSort(arr,pos+1,end);
 
-    return ;
+void quickSort(int* arr, int start, int end)
+{ 
+	if(start < end)
+	{ 
+		int partitionIndex = partition(arr, start, end); 
+		quickSort(arr, start, partitionIndex - 1); 
+		quickSort(arr, partitionIndex + 1, end); 
+	}
+	return;
 }
-int main()
-{
-    int arr[11]={2,42,4,25,25,55,23,66,88,99,34};
-    countSort(arr,0,11);
-    for(int i=0;i<11;i++)
-    {
-        cout<<arr[i]<<"  ";
-    }
 
-    return 0;
+int main() 
+{ 
+	int size = 9;
+	int arr[size] = {5, 12, 7, 1, 13, 2 ,23, 11, 18};
+	
+	cout << "Initial the array is : ";
+	for (int i = 0; i < size; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	printf("\n");
+
+	quickSort(arr, 0, size - 1);
+	
+	cout << "Sorted array : ";
+	for (int i = 0; i < size; i++)
+	{
+	cout << arr[i] << " ";
+	}
+
+	return 0;
 }
