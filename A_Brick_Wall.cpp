@@ -34,12 +34,21 @@
 void solve();
 int main()
 {
-    int t;
-    cin>>t;
-    while(t--)
+    int x=INT_MAX;
+    int z=1;
+    int mod=2804;
+    loop(i,0,11)
     {
-        solve();
+        z=(z+x);
     }
+
+    cout<<z<<endl;
+    // int t;
+    // cin>>t;
+    // while(t--)
+    // {
+    //     solve();
+    // }
     return 0;
 }
 void solve()

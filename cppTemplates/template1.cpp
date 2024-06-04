@@ -2,14 +2,13 @@
         using namespace std;
         using std::cout;
         using std::cin;
-        using std::endl;    
+        #define endl '\n'    
         #define ll long long
-        #define loop(i,a,b) for(int i=a;i<b;i++)
-        #define longloop(i,a,b) for(long long i=a;i<b;i++)
-        #define roop(i,a,b) for(int i=a-1;i>=b;i--)
+        #define loop(i,a,b) for(long long i=a;i<b;i++)
+        #define roop(i,a,b) for(long long i=a-1;i>=b;i--)
         #define all(p) p.begin(),p.end()
         #define pb(p) push_back(p);
-        int pop_count(long long a){int res=0;while(a){res+=(a&1),a>>=1;}return res;}
+        long long pop_count(long long a){int res=0;while(a){res+=(a&1),a>>=1;}return res;}
         template<class T> using _pq = priority_queue<T>;
         template<class T> using _pqr = priority_queue<T, vector<T>, greater<T>>;
         template<class T> void So(vector<T> &v) {sort(v.begin(),v.end());}
@@ -31,23 +30,41 @@
         template<class T> ll LB(vector<T> &v,T a){return lower_bound(v.begin(),v.end(),a)-v.begin();}
         template<class T> ll UB(vector<T> &v,T a){return upper_bound(v.begin(),v.end(),a)-v.begin();}
 
+template<typename T1> void printIt(T1 t1){cout<<t1<<"\n";}
+template<typename T1, typename... T2>
+void printIt(T1 t1,T2... t2) {cout<<t1<<" , "; printIt(t2...);}
 // getbits setbits countbits ispoweroftwo  shiftbits iota
+
+
+
 void solve();
 int main()
 {
-    int t;
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    ll t;
     cin>>t;
     while(t--)
     {
         solve();
     }
+    
     return 0;
 }
 void solve()
 {   
     ll n;
     cin>>n;
-  
+    vector<int> vec={1,3,4,5,6,7,0,8};
+    vec_out(vec);
+
+
 }
+
+ 
+
+
+
+
 
     

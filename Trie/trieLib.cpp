@@ -48,6 +48,7 @@ void getAll(Trie * root,string s="")
 }
 bool searchAword(Trie * root,string &s,int index=0)
 {
+    
     if(index==s.length())
     {
         if(root->isEnd) return 1;

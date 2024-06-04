@@ -67,6 +67,13 @@
         "streambuf": "cpp",
         "thread": "cpp",
         "typeindex": "cpp",
-        "valarray": "cpp"
-    }
+        "valarray": "cpp",
+        "string_view": "cpp",
+        "format": "cpp",
+        "ranges": "cpp",
+        "span": "cpp",
+        "stacktrace": "cpp"
+    },
+    "editor.fontFamily": "comic sans ",
+    "C_Cpp.errorSquiggles": "disabled"
 }

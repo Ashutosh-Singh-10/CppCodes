@@ -1,0 +1,1 @@
+{"name":"Local: matrixMultiplication","url":"c:\\Users\\Moonf\\Desktop\\codes\\c++ re\\matrixMultiplication.cpp","tests":[{"id":1715086339816,"input":"8 \n2 7 2 5 4 1 7 5\n8","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Moonf\\Desktop\\codes\\c++ re\\matrixMultiplication.cpp","group":"local","local":true}
